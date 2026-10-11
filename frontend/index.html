@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job and Recruitment System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>Job and Recruitment System</h1>
+      <span id="backendStatus" class="backend-status" role="status">Loading application…</span>
+    </div>
+    <nav id="authNav" class="auth-nav" aria-label="Account"></nav>
+  </header>
+  <div class="section-header">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="t-cand" aria-selected="true">Find jobs</button>
+      <button role="tab" id="t-rec" aria-selected="false">Hire</button>
+    </div>
+  </div>
+  <main id="app"></main>
+</div>
+
+<dialog id="dlg">
+  <form id="applyForm">
+    <h2 id="dTitle">Apply</h2>
+    <label>Full name<input id="aName" required></label>
+    <label>Email<input id="aEmail" type="email" required></label>
+    <label>Experience (years)<input id="aExp" type="number" min="0" max="50" value="0" required></label>
+    <label>Why are you a fit?<textarea id="aNote" rows="3"></textarea></label>
+    <div class="row"><button type="button" class="btn ghost" id="aCancel">Cancel</button><button class="btn">Send application</button></div>
+  </form>
+</dialog>
+<dialog id="authDlg">
+  <form id="authForm">
+    <h2 id="authTitle">Welcome back</h2>
+    <p class="auth-intro">Your prototype account is saved in this browser.</p>
+    <label id="authNameWrap" hidden>Full name<input id="authName" autocomplete="name" maxlength="100"></label>
+    <label>Email<input id="authEmail" type="email" autocomplete="email" required></label>
+    <label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required></label>
+    <label id="authRoleWrap" hidden>Account type
+      <select id="authRole"><option value="candidate">Candidate</option><option value="recruiter">Recruiter</option></select>
+    </label>
+    <p id="authError" class="form-error" role="alert"></p>
+    <div class="demo-hint">Demo candidate: <strong>candidate@jobly.in</strong> / <strong>demo123</strong><br>
+      Demo recruiter: <strong>recruiter@jobly.in</strong> / <strong>demo123</strong></div>
+    <div class="row auth-actions">
+      <button type="button" class="btn ghost" id="authCancel">Cancel</button>
+      <button type="button" class="btn ghost" id="authSwitch">Create an account</button>
+      <button class="btn" id="authSubmit">Log in</button>
+    </div>
+  </form>
+</dialog>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
